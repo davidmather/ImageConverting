@@ -1,0 +1,39 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+
+namespace imagetowmf
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            int count = 0;
+            foreach (string s in args)
+            {
+
+                if (count % 2 == 0)
+                {
+                    // Load the image.
+                    System.Drawing.Image image1 = System.Drawing.Image.FromFile(args[count]);
+
+                    count = count + 1;
+
+                    // Save the image in wmf format.
+                    image1.Save(args[count], System.Drawing.Imaging.ImageFormat.Wmf);
+                }
+                else
+                {
+                    count = count + 1;
+
+                }
+
+            }
+
+        }
+    }
+}
